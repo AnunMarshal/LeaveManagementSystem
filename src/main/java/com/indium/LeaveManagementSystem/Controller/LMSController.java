@@ -27,8 +27,10 @@ public class LMSController {
     }
     @PostMapping("/leaveBalance")
     public String saveEmployeeLeaveBalance(@RequestBody EmployeeLeaveBalance elbalance){
+        System.out.println("leave");
         elbService.saveEmployeeLeaveBalance(elbalance);
         return null;
     }
+
 
 }
