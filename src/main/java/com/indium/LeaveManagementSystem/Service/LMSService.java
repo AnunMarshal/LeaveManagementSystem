@@ -11,11 +11,12 @@ public class LMSService {
     @Autowired
     private EmployeeDetailsRepository repository;
 
-
     public String createEmployeeDetails(EmployeeDetails employeeDetails){
         System.out.println("**** inside service");
         repository.save(employeeDetails);
+        System.out.println("**** inside manish");
         return "Employee Details Added";
+
 
     }
 }
