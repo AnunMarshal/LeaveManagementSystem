@@ -16,7 +16,7 @@ public class LMSController {
 
     @PostMapping("/EmployeeDetails")
     public String createEmplyeeDetails(@RequestBody EmployeeDetails employeeDetails){
-
+        System.out.println("***** hi");
         response=service.createEmployeeDetails(employeeDetails);
         return response;
 

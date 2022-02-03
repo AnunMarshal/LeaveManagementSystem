@@ -13,7 +13,7 @@ public class LMSService {
 
 
     public String createEmployeeDetails(EmployeeDetails employeeDetails){
-
+        System.out.println("**** inside service");
         repository.save(employeeDetails);
         return "Employee Details Added";
 
