@@ -2,12 +2,17 @@ package com.indium.LeaveManagementSystem.Service;
 
 import com.indium.LeaveManagementSystem.DAO.EmployeeDetailsRepository;
 import com.indium.LeaveManagementSystem.DAO.EmployeeLeaveBalanceRepository;
+import com.indium.LeaveManagementSystem.DAO.LeaveTypeRepository;
 import com.indium.LeaveManagementSystem.DTO.EmployeeDetailsResponse;
 import com.indium.LeaveManagementSystem.DTO.EmployeeLeaveBalanceResponse;
+import com.indium.LeaveManagementSystem.DTO.LeaveTypeResponse;
 import com.indium.LeaveManagementSystem.Model.EmployeeDetails;
 import com.indium.LeaveManagementSystem.Model.EmployeeLeaveBalance;
+import com.indium.LeaveManagementSystem.Model.LeaveType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class LMSService {
@@ -16,6 +21,8 @@ public class LMSService {
     private EmployeeDetailsRepository repository;
     @Autowired
     private EmployeeLeaveBalanceRepository elbRepository;
+    @Autowired
+    private LeaveTypeRepository leaveTypeRepository;
 
     public EmployeeDetailsResponse createEmployeeDetails(EmployeeDetails employeeDetails) {
         EmployeeDetailsResponse response = new EmployeeDetailsResponse();
@@ -47,6 +54,22 @@ public class LMSService {
 
 
     }
+
+    public LeaveTypeResponse createLeaveType(LeaveType leaveType){
+
+        LeaveTypeResponse response=new LeaveTypeResponse();
+
+        leaveType.setCreatedAt(System.currentTimeMillis());
+
+        leaveTypeRepository.save(leaveType);
+
+        response.setId(leaveType.getId());
+        response.setType(leaveType.getType());
+        response.setStatus(leaveType.getStatus());
+
+        return response;
+    }
+
 
 
 

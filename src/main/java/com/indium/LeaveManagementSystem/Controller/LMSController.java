@@ -2,8 +2,10 @@ package com.indium.LeaveManagementSystem.Controller;
 
 import com.indium.LeaveManagementSystem.DTO.EmployeeDetailsResponse;
 import com.indium.LeaveManagementSystem.DTO.EmployeeLeaveBalanceResponse;
+import com.indium.LeaveManagementSystem.DTO.LeaveTypeResponse;
 import com.indium.LeaveManagementSystem.Model.EmployeeDetails;
 import com.indium.LeaveManagementSystem.Model.EmployeeLeaveBalance;
+import com.indium.LeaveManagementSystem.Model.LeaveType;
 import com.indium.LeaveManagementSystem.Service.LMSService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +34,18 @@ public class LMSController {
         EmployeeLeaveBalanceResponse elbResponse = new EmployeeLeaveBalanceResponse();
         elbResponse=service.createEmployeeLeaveBalance(employeeLeaveBalance);
       return elbResponse;
+
+    }
+
+
+    @PostMapping("/createLeaveType")
+    public LeaveTypeResponse createLeaveType(@RequestBody LeaveType leaveType){
+
+        LeaveTypeResponse response=new LeaveTypeResponse();
+
+        response=service.createLeaveType(leaveType);
+
+        return response;
 
     }
 
