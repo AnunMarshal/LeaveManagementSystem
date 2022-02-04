@@ -45,16 +45,19 @@ public class EmployeeLeaveBalance {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedAt(Long createdAt) {
+     Date date = new Date(createdAt);
+
+        this.createdAt = date;
     }
 
     public Date getUpdatedAt() {
         return UpdatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        UpdatedAt = updatedAt;
+    public void setUpdatedAt(Long updatedAt) {
+        Date date = new Date(updatedAt);
+        UpdatedAt = date;
     }
 
     public String getCreatedBy() {
