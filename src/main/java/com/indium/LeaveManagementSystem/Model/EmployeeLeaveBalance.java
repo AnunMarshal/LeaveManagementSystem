@@ -1,10 +1,17 @@
 package com.indium.LeaveManagementSystem.Model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+@Data
+@Setter
+@Getter
 @Entity
 public class EmployeeLeaveBalance {
     @Id
@@ -18,71 +25,17 @@ public class EmployeeLeaveBalance {
     private String updatedBy;
     private String Status;
 
-    public int getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(int empId) {
-        this.empId = empId;
-    }
-    public int getLeaveTypeId() {
-        return leaveTypeId;
-    }
-
-    public void setLeaveTypeId(int leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
-    }
-
-    public int getLeaveAvailability() {
-        return leaveAvailability;
-    }
-
-    public void setLeaveAvailability(int leaveAvailability) {
-        this.leaveAvailability = leaveAvailability;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
     public void setCreatedAt(Long createdAt) {
      Date date = new Date(createdAt);
 
         this.createdAt = date;
     }
-
-    public Date getUpdatedAt() {
-        return UpdatedAt;
-    }
-
     public void setUpdatedAt(Long updatedAt) {
         Date date = new Date(updatedAt);
         UpdatedAt = date;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
-    }
 
 
 

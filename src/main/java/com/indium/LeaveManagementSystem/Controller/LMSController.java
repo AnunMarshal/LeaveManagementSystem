@@ -8,9 +8,9 @@ import com.indium.LeaveManagementSystem.Model.EmployeeLeaveBalance;
 import com.indium.LeaveManagementSystem.Model.LeaveType;
 import com.indium.LeaveManagementSystem.Service.LMSService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 @RestController
 public class LMSController {
@@ -31,15 +31,29 @@ public class LMSController {
     @PostMapping("/LeaveBalance")
     public EmployeeLeaveBalanceResponse createEmployeeLeaveBalance(@RequestBody EmployeeLeaveBalance employeeLeaveBalance){
 
-        EmployeeLeaveBalanceResponse elbResponse = new EmployeeLeaveBalanceResponse();
-        elbResponse=service.createEmployeeLeaveBalance(employeeLeaveBalance);
-      return elbResponse;
+
+      return service.createEmployeeLeaveBalance(employeeLeaveBalance);
 
     }
+        @GetMapping("/getLeaveBalance")
+	    public List<EmployeeLeaveBalance> getLeaveBalance(){
+	    	return service.getLeaveBalance();
+	    }
+
+        @PutMapping("/updateLeaveBalance")
+       public void updateLeaveBalance(@RequestBody EmployeeLeaveBalance leaveBalance){
+       // return service.updateLeaveBalance(leaveBalance);
 
 
-    @PostMapping("/createLeaveType")
-    public LeaveTypeResponse createLeaveType(@RequestBody LeaveType leaveType){
+       }
+       @DeleteMapping("/deleteLeaveBalance/{id}")
+       public void deleteLeaveBalance(@PathVariable int id){
+        service.deleteLeaveBalance(id);
+
+       }
+
+     @PostMapping("/createLeaveType")
+     public LeaveTypeResponse createLeaveType(@RequestBody LeaveType leaveType){
 
         LeaveTypeResponse response=new LeaveTypeResponse();
 

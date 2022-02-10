@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.*;
+
 @Service
 public class LMSService {
 
@@ -54,6 +56,19 @@ public class LMSService {
 
 
     }
+     	public List<EmployeeLeaveBalance> getLeaveBalance() {
+			List<EmployeeLeaveBalance> elb=new ArrayList<>();
+			elbRepository.findAll().forEach(elb::add);
+
+			return elb;
+		}
+
+        public void updateLeaveBalance(EmployeeLeaveBalance leaveBalance,int id){
+        elbRepository.save(leaveBalance);
+        }
+        public void deleteLeaveBalance(int id) {
+        elbRepository.deleteById(id);
+        }
 
     public LeaveTypeResponse createLeaveType(LeaveType leaveType){
 
@@ -72,6 +87,4 @@ public class LMSService {
 
 
 
-
-   
 }
